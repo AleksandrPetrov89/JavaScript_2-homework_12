@@ -33,3 +33,23 @@ test('Проверка добавления класса Movie', () => {
   cart.add(item2);
   expect(cart.items.length).toBe(2);
 });
+
+test('Проверка метода totalPrice()', () => {
+  expect(cart.totalPrice()).toBe(250);
+});
+
+test('Проверка метода totalPriceWithDiscount()', () => {
+  expect(cart.totalPriceWithDiscount(10)).toBe(225);
+});
+
+test.each([
+  ['0', 2, [item1, item2]],
+  [1, 1, [item2]],
+])(
+  ('Проверка метода removeProduct() при id = %d'),
+  (id, res, items) => {
+    cart.removeProduct(id);
+    expect(cart.items.length).toBe(res);
+    expect(cart.items).toEqual(items);
+  },
+);
