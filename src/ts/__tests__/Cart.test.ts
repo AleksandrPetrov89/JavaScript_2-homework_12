@@ -44,7 +44,9 @@ test('Проверка метода totalPriceWithDiscount()', () => {
 
 test.each([
   ['0', 2, [item1, item2]],
+  [0, 2, [item1, item2]],
   [1, 1, [item2]],
+  ['2', 0, []],
 ])(
   ('Проверка метода removeProduct() при id = %d'),
   (id, res, items) => {
