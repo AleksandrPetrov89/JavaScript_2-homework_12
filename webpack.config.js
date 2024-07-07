@@ -2,6 +2,8 @@ const path = require('node:path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 
 module.exports = {
+  // devtool: 'inline-source-map',    // Source Maps - нужны для отладки в браузере
+  devtool: 'source-map',              // Посмотри какой вариант лучше
   entry: './src/index.ts',
   resolve: {
     extensions: ['*', '.js', '.jsx', '.tsx', '.ts'],
